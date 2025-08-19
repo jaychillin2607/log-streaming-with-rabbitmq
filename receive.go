@@ -36,7 +36,7 @@ func receive(topicKey *string) {
 	handleFailure("Error while creating queue", &err)
 
 	// bind
-	for _, level := range strings.Split(*topicKey, ".") {
+	for level := range strings.SplitSeq(strings.TrimSpace(strings.Trim(*topicKey, ".")), ".") {
 		err = channel.QueueBind(
 			queue.Name,
 			createExchangeKey(&level),

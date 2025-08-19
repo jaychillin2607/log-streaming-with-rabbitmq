@@ -19,7 +19,7 @@ func send(level, msg *string) {
 
 	// exchange
 	err = channel.ExchangeDeclare(
-		createExchangeKey(level),
+		EXCHANGE_TOPIC,
 		"topic",
 		false,
 		true,
